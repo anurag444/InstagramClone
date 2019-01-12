@@ -31,8 +31,7 @@ public class Login extends AppCompatActivity {
         loginenter = findViewById(R.id.loginenter);
 
         if (ParseUser.getCurrentUser() !=null){
-            Intent intent = new Intent(Login.this, Home.class);
-            startActivity(intent);
+            ParseUser.getCurrentUser().logOut();
         }
 
         loginenter.setOnClickListener(new View.OnClickListener() {
