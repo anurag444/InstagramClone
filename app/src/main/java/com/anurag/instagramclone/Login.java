@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity {
                                 Toast.makeText(Login.this, user.get("username") + " is Logged In "
                                         , Toast.LENGTH_LONG).show();
 
-                                Intent intent = new Intent(Login.this, Home.class);
+                                Intent intent = new Intent(Login.this,Home.class);
                                 startActivity(intent);
                                 progressDialog.dismiss();
 
@@ -61,6 +61,7 @@ public class Login extends AppCompatActivity {
                             } else {
                                 Toast.makeText(Login.this, e.getMessage()
                                         , Toast.LENGTH_LONG).show();
+                                progressDialog.dismiss();
                             }
                         }
                     });

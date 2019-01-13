@@ -33,8 +33,7 @@ public class SignUp extends AppCompatActivity {
         signupenter = findViewById(R.id.signupenter);
 
         if (ParseUser.getCurrentUser() !=null){
-            Intent intent = new Intent(SignUp.this, Home.class);
-            startActivity(intent);
+            ParseUser.getCurrentUser().logOut();
         }
 
 
@@ -76,6 +75,7 @@ public class SignUp extends AppCompatActivity {
                             } else {
                                 Toast.makeText(SignUp.this, e.getMessage()
                                         , Toast.LENGTH_LONG).show();
+                                progressDialog.dismiss();
                             }
                         }
                     });
