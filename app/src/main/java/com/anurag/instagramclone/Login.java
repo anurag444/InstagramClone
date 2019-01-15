@@ -55,6 +55,7 @@ public class Login extends AppCompatActivity {
 
                                 Intent intent = new Intent(Login.this,Home.class);
                                 startActivity(intent);
+                                finish();
                                 progressDialog.dismiss();
 
 
