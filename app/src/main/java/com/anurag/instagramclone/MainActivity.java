@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity  {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignUp.class);
+                Intent intent = new Intent(MainActivity.this, Hello.class);
                 startActivity(intent);
             }
         });

@@ -20,9 +20,10 @@ import com.parse.SaveCallback;
  */
 public class ProfileTab extends Fragment {
 
-    private EditText name , number ,profession , hobbies ,bio;
-    private Button updateinfo;
 
+    private EditText edtProfileName, edtProfileBio, edtProfileProfession,
+            edtProfileHobbies, edtProfileNumber;
+    private Button btnUpdateInfo;
 
     public ProfileTab() {
         // Required empty public constructor
@@ -33,77 +34,92 @@ public class ProfileTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.
-                fragment_profile_tab, container,
+        View view = inflater.inflate(R.layout.fragment_profile_tab, container,
                 false);
-        name=view.findViewById(R.id.name);
-        bio =view.findViewById(R.id.bio);
-        hobbies=view.findViewById(R.id.hobbies);
-        profession =view.findViewById(R.id.profession);
-        number =view.findViewById(R.id.number);
+        edtProfileName = view.findViewById(R.id.name);
+        edtProfileBio = view.findViewById(R.id.bio);
+        edtProfileProfession = view.findViewById(R.id.profession);
+        edtProfileHobbies = view.findViewById(R.id.hobbies);
+        edtProfileNumber = view.findViewById(R.id.number);
 
-        updateinfo=view.findViewById(R.id.updateinfo);
-        final ParseUser parseUser = new ParseUser();
+        btnUpdateInfo = view.findViewById(R.id.updateinfo);
 
-        if (parseUser.get("Profile Name")==null){
-            name.setText("");
-        }else {
-            name.setText(parseUser.get("Profile Name") + "");
+        final ParseUser parseUser = ParseUser.getCurrentUser();
+
+        if (parseUser.get("Profile_Name") == null) {
+            edtProfileName.setText("");
+
+        } else {
+            edtProfileName.setText(parseUser.get("Profile_Name").toString());
+
+        }
+        if (parseUser.get("Profile_Bio") == null) {
+            edtProfileBio.setText("");
+
+        } else {
+            edtProfileBio.setText(parseUser.get("Profile_Bio").toString());
+
+        }
+        if (parseUser.get("Profile_Profession") == null) {
+            edtProfileProfession.setText("");
+
+        } else {
+            edtProfileProfession.setText(parseUser.get("Profile_Profession").toString());
+
+        }
+        if (parseUser.get("Profile_Hobbies") == null) {
+            edtProfileHobbies.setText("");
+
+        } else {
+            edtProfileHobbies.setText(parseUser.get("Profile_Hobbies").toString());
+
+        }
+        if (parseUser.get("Profile_Phone_Number") == null) {
+            edtProfileNumber.setText("");
+
+        } else {
+            edtProfileNumber.setText(parseUser.get("Profile_Phone_Number").toString());
+
         }
 
-        if (parseUser.get("Bio")==null){
-            bio.setText("");
-        }else {
-            bio.setText(parseUser.get("Bio") + "");
-        }
+//        edtProfileBio.setText(parseUser.get("Profile Bio") + "");
+//        edtProfileProfession.setText(parseUser.get("Profile Profession") + "");
+//        edtProfileHobbies.setText(parseUser.get("Profile Hobbies") + "");
+//        edtProfileNumber.setText(parseUser.get("Phone Number") + "");
 
-        if (parseUser.get("Hobbies")==null){
-            hobbies.setText("");
-        }else {
-            hobbies.setText(parseUser.get("Hobbies") + "");
-        }
-
-        if (parseUser.get("Profession")==null){
-            profession.setText("");
-        }else {
-            profession.setText(parseUser.get("Profession") + "");
-        }
-
-        if (parseUser.get("Phone Number")==null){
-            number.setText("");
-        }else {
-            number.setText(parseUser.get("Phone Number") + "");
-        }
-
-        updateinfo.setOnClickListener(new View.OnClickListener() {
+        btnUpdateInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             parseUser.put("Profile Name",name.getText().toString());
-             parseUser.put("Bio",bio.getText().toString());
-             parseUser.put("Hobbies",hobbies.getText().toString());
-             parseUser.put("Phone Number",number.getText().toString());
-             parseUser.put("Profession",profession.getText().toString());
 
-             parseUser.saveInBackground(new SaveCallback() {
-                 @Override
-                 public void done(ParseException e) {
-                     if (e==null){
-                         Toast.makeText(getContext(),"Info Updated",Toast.LENGTH_LONG).show();
+                parseUser.put("Profile_Name", edtProfileName.getText().toString());
+                parseUser.put("Profile_Bio", edtProfileBio.getText().toString());
+                parseUser.put("Profile_Profession", edtProfileProfession.getText().toString());
+                parseUser.put("Profile_Hobbies", edtProfileHobbies.getText().toString());
+                parseUser.put("Profile_Phone Number", edtProfileNumber.getText().toString());
 
-                     }
-                     else{
-                         Toast.makeText(getContext(),e.getMessage(),
-                                 Toast.LENGTH_LONG).show();
+                parseUser.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
 
+                            Toast.makeText(getContext(),
+                                    "Info Updated",
+                                    Toast.LENGTH_SHORT).show();
 
-                     }
-                 }
-             });
+                        } else {
+                            Toast.makeText(getContext(), e.getMessage(),
+                                    Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
 
             }
         });
 
         return view;
+
     }
 
 }
+

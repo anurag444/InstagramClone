@@ -32,9 +32,9 @@ public class SignUp extends AppCompatActivity {
         passwordsignup= findViewById(R.id.passwordsignup);
         signupenter = findViewById(R.id.signupenter);
 
-        if (ParseUser.getCurrentUser() !=null){
-            ParseUser.getCurrentUser().logOut();
-        }
+//        if (ParseUser.getCurrentUser() !=null){
+//            ParseUser.getCurrentUser().logOut();
+//        }
 
 
 

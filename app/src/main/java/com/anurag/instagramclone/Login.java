@@ -30,9 +30,9 @@ public class Login extends AppCompatActivity {
         passwordlogin= findViewById(R.id.passwordlogin);
         loginenter = findViewById(R.id.loginenter);
 
-        if (ParseUser.getCurrentUser() !=null){
-            ParseUser.getCurrentUser().logOut();
-        }
+//        if (ParseUser.getCurrentUser() !=null){
+//            ParseUser.getCurrentUser().logOut();
+//        }
 
         loginenter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,17 +53,18 @@ public class Login extends AppCompatActivity {
                                 Toast.makeText(Login.this, user.get("username") + " is Logged In "
                                         , Toast.LENGTH_LONG).show();
 
-                                Intent intent = new Intent(Login.this,Home.class);
+                                Intent intent = new Intent(Login.this , Home.class);
                                 startActivity(intent);
                                 finish();
-                                progressDialog.dismiss();
+
 
 
                             } else {
                                 Toast.makeText(Login.this, e.getMessage()
                                         , Toast.LENGTH_LONG).show();
-                                progressDialog.dismiss();
+
                             }
+                            progressDialog.dismiss();
                         }
                     });
                 }

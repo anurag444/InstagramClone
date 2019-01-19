@@ -34,7 +34,6 @@ public class UsersPosts extends AppCompatActivity {
 
         linearLayout = findViewById(R.id.linearLayout);
 
-
         Intent receivedIntentObject = getIntent();
         final String receivedUserName = receivedIntentObject.getStringExtra("username");
         Toast.makeText(this, receivedUserName, Toast.LENGTH_SHORT).show();
@@ -98,7 +97,8 @@ public class UsersPosts extends AppCompatActivity {
 
                 } else {
 
-                    Toast.makeText(UsersPosts.this, receivedUserName + " doesn't have any posts!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UsersPosts.this, receivedUserName +
+                            " doesn't have any posts!", Toast.LENGTH_SHORT).show();
                     finish();
                 }
 

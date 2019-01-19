@@ -13,7 +13,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -24,16 +23,14 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-
 import java.io.ByteArrayOutputStream;
 
 public class Home extends AppCompatActivity {
 
-    private Toolbar toolbar;
+    private android.support.v7.widget.Toolbar toolbar;
     private ViewPager viewPager;
-    private TabAdapter tabAdapter;
     private TabLayout tabLayout;
-
+    private TabAdapter tabAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,22 +38,20 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home2);
 
         setTitle("Home");
+
         toolbar = findViewById(R.id.mytoolbar);
         setSupportActionBar(toolbar);
 
         viewPager = findViewById(R.id.viewPager);
-        tabAdapter= new TabAdapter(getSupportFragmentManager());
+        tabAdapter = new TabAdapter(getSupportFragmentManager());
         viewPager.setAdapter(tabAdapter);
 
-        tabLayout=findViewById(R.id.tabLayout);
-        tabLayout.setupWithViewPager(viewPager,false);
-
-
-
-
-
+        tabLayout = findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager, false);
 
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -64,6 +59,7 @@ public class Home extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 

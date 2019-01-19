@@ -30,9 +30,15 @@ import libs.mjn.prettydialog.PrettyDialogCallback;
  */
 public class UsersTab extends Fragment implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
+
     private ListView listView;
-    private ArrayList arrayList;
-    private ArrayAdapter arrayAdapter;//Used to get data and then it is used by list view
+    private ArrayList<String> arrayList;
+    private ArrayAdapter arrayAdapter;
+
+    public UsersTab() {
+        // Required empty public constructor
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,15 +46,14 @@ public class UsersTab extends Fragment implements AdapterView.OnItemClickListene
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_users_tab, container, false);
 
-        listView = view.findViewById(R.id.listview);
+        listView = view.findViewById(R.id.listView);
         arrayList = new ArrayList();
         arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, arrayList);
 
-        listView.setOnItemClickListener( UsersTab.this);
+        listView.setOnItemClickListener(UsersTab.this);
         listView.setOnItemLongClickListener(UsersTab.this);
 
-        final TextView txtLoadingUsers;
-        txtLoadingUsers = view.findViewById(R.id.txtLoadingUsers);
+        final TextView txtLoadingUsers = view.findViewById(R.id.txtLoadingUsers);
         ParseQuery<ParseUser> parseQuery = ParseUser.getQuery();
 
         parseQuery.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
@@ -83,7 +88,7 @@ public class UsersTab extends Fragment implements AdapterView.OnItemClickListene
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
         Intent intent = new Intent(getContext(), UsersPosts.class);
-        intent.putExtra("username ",(int)  arrayList.get(position));
+        intent.putExtra("username", arrayList.get(position));
         startActivity(intent);
 
     }
@@ -134,5 +139,4 @@ public class UsersTab extends Fragment implements AdapterView.OnItemClickListene
 
         return true;
     }
-
 }
