@@ -56,6 +56,14 @@ public class SignUp extends AppCompatActivity {
                     appuser.setPassword(passwordsignup.getText().toString());
                     appuser.setEmail(emailsignup.getText().toString());
 
+                    findViewById(R.id.alreadyUser).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent(SignUp.this,Login.class));
+                            finish();
+                        }
+                    });
+
                     final ProgressDialog progressDialog = new ProgressDialog(SignUp.this);
                     progressDialog.setMessage("Signing Up " + appuser.getUsername());
                     progressDialog.show();

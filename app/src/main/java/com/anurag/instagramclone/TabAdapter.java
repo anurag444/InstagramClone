@@ -1,9 +1,11 @@
 package com.anurag.instagramclone;
 
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.MenuItem;
 
 public class TabAdapter extends FragmentPagerAdapter {
 
@@ -24,7 +26,8 @@ public class TabAdapter extends FragmentPagerAdapter {
 
                 return new UsersTab();
             case 2:
-                return new SharedPictureTab();
+                SharedPictureTab sharedPictureTab= new SharedPictureTab();
+                return sharedPictureTab;
             default:
                 return null;
 

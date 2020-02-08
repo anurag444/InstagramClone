@@ -53,7 +53,6 @@ public class UsersTab extends Fragment implements AdapterView.OnItemClickListene
         listView.setOnItemClickListener(UsersTab.this);
         listView.setOnItemLongClickListener(UsersTab.this);
 
-        final TextView txtLoadingUsers = view.findViewById(R.id.txtLoadingUsers);
         ParseQuery<ParseUser> parseQuery = ParseUser.getQuery();
 
         parseQuery.whereNotEqualTo("username", ParseUser.getCurrentUser().getUsername());
@@ -72,7 +71,6 @@ public class UsersTab extends Fragment implements AdapterView.OnItemClickListene
                         }
 
                         listView.setAdapter(arrayAdapter);
-                        txtLoadingUsers.animate().alpha(0).setDuration(2000);
                         listView.setVisibility(View.VISIBLE);
 
                     }

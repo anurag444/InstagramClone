@@ -8,27 +8,35 @@
     tools:context=".ProfileTab">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Update Your Profile"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <EditText
             android:id="@+id/name"
-            android:layout_width="250dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="7dp"
             android:ems="10"
@@ -38,10 +46,8 @@
 
         <EditText
             android:id="@+id/profession"
-            android:layout_width="250dp"
-            android:layout_height="55dp"
-
-            android:layout_marginStart="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="7dp"
@@ -52,9 +58,8 @@
 
         <EditText
             android:id="@+id/number"
-            android:layout_width="250dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="7dp"
@@ -65,9 +70,8 @@
 
         <EditText
             android:id="@+id/bio"
-            android:layout_width="250dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="7dp"
@@ -78,9 +82,8 @@
 
         <EditText
             android:id="@+id/hobbies"
-            android:layout_width="250dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="7dp"
@@ -91,16 +94,21 @@
 
         <Button
             android:id="@+id/updateinfo"
-            android:layout_width="161dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@android:color/holo_green_light"
-            android:gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/login_btn_bg"
+            android:paddingStart="30dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="30dp"
+            android:paddingBottom="12dp"
             android:text="Update Info"
-            android:textColor="@android:color/white"
-            android:textSize="19sp" />
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="26sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
